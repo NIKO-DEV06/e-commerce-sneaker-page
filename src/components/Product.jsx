@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import image1 from "../images/image-product-1.jpg";
 import image2 from "../images/image-product-2.jpg";
 import image3 from "../images/image-product-3.jpg";
@@ -13,8 +13,15 @@ import rightArrow from "../images/icon-next.svg";
 import minus from "../images/icon-minus.svg";
 import plus from "../images/icon-plus.svg";
 import cartIcon from "../images/icon-cart.svg";
+import ImageModal from "./ImageModal";
 
 const Product = () => {
+  const [imageModal, setImageModal] = useState(true);
+
+  const showImageModalHandler = () => {
+    setImageModal(true);
+  };
+
   const slides = [
     { url: image1 },
     { url: image2 },
@@ -31,9 +38,11 @@ const Product = () => {
 
   return (
     <Fragment>
+      {/* {imageModal && <ImageModal slides={slides} thumbnails={thumbnails} />} */}
       <div className="pb-4 md:flex lg:mx-32 md:gap-[3rem]">
         <div className="relative md:w-1/2">
           <img
+            onClick={showImageModalHandler}
             src={slides[0].url}
             alt=""
             className="w-full max-h-[320px] md:w-auto md:h-auto md:rounded-2xl md:scale-[1.35] md:absolute md:top-[7.625rem] md:ml-16 cursor-pointer"
@@ -42,22 +51,22 @@ const Product = () => {
             <img
               src={thumbnails[0].url}
               alt=""
-              className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[0.5rem] cursor-pointer"
+              className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[0.5rem] cursor-pointer md:hover:opacity-70 duration-200 "
             />
             <img
               src={thumbnails[1].url}
               alt=""
-              className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[7.5rem] cursor-pointer"
+              className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[7.5rem] cursor-pointer md:hover:opacity-70 duration-200"
             />
             <img
               src={thumbnails[2].url}
               alt=""
-              className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[14.5rem] cursor-pointer"
+              className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[14.5rem] cursor-pointer md:hover:opacity-70 duration-200"
             />
             <img
               src={thumbnails[3].url}
               alt=""
-              className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[21.5rem] cursor-pointer"
+              className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[21.5rem] cursor-pointer md:hover:opacity-70 duration-200"
             />
           </div>
           <div className="flex absolute top-[43%] left-4 w-10 h-10 bg-white rounded-full cursor-pointer md:hidden">
@@ -70,13 +79,13 @@ const Product = () => {
         {/* Description */}
         <div className="md:w-1/2 md:mt-[7.5rem] md:ml-16 md:scale-[0.85] ">
           <div className="">
-            <h3 className="uppercase tracking-[0.11em] text-sm ml-6 pt-4 pb-3 text-orange font-semibold">
+            <h3 className="uppercase tracking-[0.11em] text-sm md:text-base ml-6 pt-4 pb-3 text-orange font-semibold">
               Sneaker Company
             </h3>
-            <h1 className="font-bold ml-6 text-[1.6rem] md:text-[2rem] leading-8 md:my-2">
+            <h1 className="font-bold ml-6 text-[1.6rem] md:text-[2.8rem] leading-8 md:my-2 md:leading-[3rem]">
               Fall Limited Edition <br /> Sneakers
             </h1>
-            <p className="px-6 py-3 text-darkGrayishBlue leading-[1.5] md:leading-[1.8]">
+            <p className="px-6 py-3 text-darkGrayishBlue leading-[1.5] md:leading-[1.8] md:text-lg">
               These low-profile sneakers are your perfect casual wear companion.
               Featuring a durable rubber outer sole, they'll withstand
               everything the weather can offer.

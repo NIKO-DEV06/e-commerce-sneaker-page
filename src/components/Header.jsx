@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from "react";
+import Cart from "./Cart";
 
 import logoIcon from "../images/logo.svg";
 import menuIcon from "../images/icon-menu.svg";
@@ -8,6 +9,7 @@ import MobileNav from "./MobileNav";
 
 const Header = () => {
   const [isMobileNav, setIsMobileNav] = useState(false);
+  const [cart, setCart] = useState(false);
 
   const showMobileNavHandler = () => {
     setIsMobileNav(true);
@@ -15,10 +17,15 @@ const Header = () => {
   const closeMobileNavHandler = () => {
     setIsMobileNav(false);
   };
+
+  const showCartHandler = () => {
+    setCart(!cart);
+  };
   return (
     <Fragment>
-      <header>
+      <header className="">
         {isMobileNav && <MobileNav onClose={closeMobileNavHandler} />}
+        {cart && <Cart />}
         <nav className="flex justify-between items-center w-[92%]  mx-auto my-7 md:px-10">
           <div className="flex gap-6">
             <img
@@ -64,7 +71,12 @@ const Header = () => {
             </ul>
           </div>
           <div className="flex items-center gap-9">
-            <img src={cartIcon} alt="" className="w-6 h-5 cursor-pointer" />
+            <img
+              onClick={showCartHandler}
+              src={cartIcon}
+              alt=""
+              className="w-6 h-5 cursor-pointer"
+            />
             <img
               src={userIcon}
               alt=""
