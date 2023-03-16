@@ -5,7 +5,7 @@ const MobileNav = (props) => {
   return (
     <Fragment>
       <div>
-        <div className="absolute z-30 bg-white h-screen w-[65%]">
+        <div className="absolute z-30 bg-white h-[125%] w-[65%]">
           <div className="ml-6" onClick={props.onClose}>
             <img src={closeIcon} alt="" className="w-5" />
           </div>
@@ -29,7 +29,7 @@ const MobileNav = (props) => {
         </div>
         <div
           onClick={props.onClose}
-          className="bg-black w-screen absolute h-screen opacity-[75%] z-20"
+          className="bg-black w-screen absolute h-[125%] opacity-[75%] z-20"
         ></div>
       </div>
     </Fragment>
