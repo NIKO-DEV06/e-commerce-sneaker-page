@@ -3,6 +3,11 @@ import image1 from "../images/image-product-1.jpg";
 import image2 from "../images/image-product-2.jpg";
 import image3 from "../images/image-product-3.jpg";
 import image4 from "../images/image-product-4.jpg";
+import thumbnail1 from "../images/image-product-1-thumbnail.jpg";
+import thumbnail2 from "../images/image-product-2-thumbnail.jpg";
+import thumbnail3 from "../images/image-product-3-thumbnail.jpg";
+import thumbnail4 from "../images/image-product-4-thumbnail.jpg";
+
 import leftArrow from "../images/icon-previous.svg";
 import rightArrow from "../images/icon-next.svg";
 import minus from "../images/icon-minus.svg";
@@ -17,6 +22,13 @@ const Product = () => {
     { url: image4 },
   ];
 
+  const thumbnails = [
+    { url: thumbnail1 },
+    { url: thumbnail2 },
+    { url: thumbnail3 },
+    { url: thumbnail4 },
+  ];
+
   return (
     <Fragment>
       <div className="pb-4 md:flex lg:mx-32 md:gap-[3rem]">
@@ -24,8 +36,30 @@ const Product = () => {
           <img
             src={slides[0].url}
             alt=""
-            className="w-full max-h-[320px] md:w-auto md:h-auto md:rounded-2xl md:scale-[1.35] md:absolute md:top-[7.625rem] md:ml-16"
+            className="w-full max-h-[320px] md:w-auto md:h-auto md:rounded-2xl md:scale-[1.35] md:absolute md:top-[7.625rem] md:ml-16 cursor-pointer"
           />
+          <div className="sm:hidden md:flex">
+            <img
+              src={thumbnails[0].url}
+              alt=""
+              className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[0.5rem] cursor-pointer"
+            />
+            <img
+              src={thumbnails[1].url}
+              alt=""
+              className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[7.5rem] cursor-pointer"
+            />
+            <img
+              src={thumbnails[2].url}
+              alt=""
+              className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[14.5rem] cursor-pointer"
+            />
+            <img
+              src={thumbnails[3].url}
+              alt=""
+              className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[21.5rem] cursor-pointer"
+            />
+          </div>
           <div className="flex absolute top-[43%] left-4 w-10 h-10 bg-white rounded-full cursor-pointer md:hidden">
             <img src={leftArrow} alt="" className="mx-auto p-3 mr-[0.2rem]" />
           </div>
@@ -34,7 +68,7 @@ const Product = () => {
           </div>
         </div>
         {/* Description */}
-        <div className="md:w-1/2 md:mt-16 md:ml-16 md:scale-[0.85]">
+        <div className="md:w-1/2 md:mt-[7.5rem] md:ml-16 md:scale-[0.85] ">
           <div className="">
             <h3 className="uppercase tracking-[0.11em] text-sm ml-6 pt-4 pb-3 text-orange font-semibold">
               Sneaker Company
@@ -70,7 +104,7 @@ const Product = () => {
               <p>0</p>
               <img src={plus} alt="" className="cursor-pointer md:w-4 md:h-5" />
             </div>
-            <div className="flex justify-center mx-6 bg-orange p-[1.1rem] rounded-md mt-4 text-white gap-4 font-bold md:w-[60%] md:mx-0 cursor-pointer">
+            <div className="flex justify-center mx-6 bg-orange p-[1.1rem] rounded-md mt-4 text-white gap-4 font-bold md:w-[60%] md:mx-0 cursor-pointer md:hover:drop-shadow-glow md:hover:opacity-90 duration-300">
               <img src={cartIcon} alt="" />
               Add to cart
             </div>

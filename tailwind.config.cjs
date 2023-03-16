@@ -13,9 +13,7 @@ module.exports = {
         // Primary
         orange: "hsl(26, 100%, 55%)",
         paleOrange: "hsl(25, 100%, 94%)",
-
         // Neutral
-
         veryDarkBlue: "hsl(220, 13%, 13%)",
         darkGrayishBlue: "hsl(219, 9%, 45%)",
         grayishBlue: "hsl(220, 14%, 75%)",
@@ -45,7 +43,7 @@ module.exports = {
         widest: ".3em",
       },
       dropShadow: {
-        glow: "0 0 1em hsl(150, 100%, 66%)",
+        glow: "0 0 1em hsl(26, 100%, 55%)",
       },
     },
   },
