@@ -15,13 +15,7 @@ import plus from "../images/icon-plus.svg";
 import cartIcon from "../images/icon-cart.svg";
 import ImageModal from "./ImageModal";
 
-const Product = () => {
-  const [imageModal, setImageModal] = useState(true);
-
-  const showImageModalHandler = () => {
-    setImageModal(true);
-  };
-
+const Product = (props) => {
   const slides = [
     { url: image1 },
     { url: image2 },
@@ -38,17 +32,17 @@ const Product = () => {
 
   return (
     <Fragment>
-      {/* {imageModal && <ImageModal slides={slides} thumbnails={thumbnails} />} */}
       <div className="pb-4 md:flex lg:mx-32 md:gap-[3rem]">
         <div className="relative md:w-1/2">
           <img
-            onClick={showImageModalHandler}
+            // onClick={showImageModalHandler}
             src={slides[0].url}
             alt=""
             className="w-full max-h-[320px] md:w-auto md:h-auto md:rounded-2xl md:scale-[1.35] md:absolute md:top-[7.625rem] md:ml-16 cursor-pointer"
           />
           <div className="sm:hidden md:flex">
             <img
+              onClick={props.onShowImageModal}
               src={thumbnails[0].url}
               alt=""
               className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[0.5rem] cursor-pointer md:hover:opacity-70 duration-200 "

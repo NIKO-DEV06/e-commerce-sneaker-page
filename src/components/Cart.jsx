@@ -24,10 +24,10 @@ const Cart = () => {
               <span className="text-black font-bold ml-2">$375.00</span>
             </p>
           </div>
-          <img src={deleteIcon} alt="" className="mt-5 ml-5" />
+          <img src={deleteIcon} alt="" className="mt-5 ml-5 pr-4" />
         </div>
 
-        <div className="flex items-center w-[85%] bg-orange mx-auto text-white font-bold text-center h-[3.4rem] mt-6 rounded-lg">
+        <div className="flex items-center w-[85%] bg-orange mx-auto text-white font-bold text-center h-[3.4rem] mt-6 rounded-lg md:hover:drop-shadow-glow duration-300 cursor-pointer">
           <p className="my-auto mx-auto">Checkout</p>
         </div>
       </div>

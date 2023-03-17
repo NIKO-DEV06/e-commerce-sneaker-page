@@ -1,5 +1,9 @@
 import React, { Fragment } from "react";
 
+import image1 from "../images/image-product-1.jpg";
+import image2 from "../images/image-product-2.jpg";
+import image3 from "../images/image-product-3.jpg";
+import image4 from "../images/image-product-4.jpg";
 import thumbnail1 from "../images/image-product-1-thumbnail.jpg";
 import thumbnail2 from "../images/image-product-2-thumbnail.jpg";
 import thumbnail3 from "../images/image-product-3-thumbnail.jpg";
@@ -7,48 +11,77 @@ import thumbnail4 from "../images/image-product-4-thumbnail.jpg";
 import closeIcon from "../images/icon-close.svg";
 import leftArrow from "../images/icon-previous.svg";
 import rightArrow from "../images/icon-next.svg";
+import Backdrop from "./Backdrop";
 
 const ImageModal = (props) => {
+  const slides = [
+    { url: image1 },
+    { url: image2 },
+    { url: image3 },
+    { url: image4 },
+  ];
+
+  const thumbnails = [
+    { url: thumbnail1 },
+    { url: thumbnail2 },
+    { url: thumbnail3 },
+    { url: thumbnail4 },
+  ];
+
   return (
     <Fragment>
       <div>
-        <div className="absolute z-30">
+        <Backdrop onClose={props.onClose} />
+        <div className="absolute z-30 pointer-events-none">
           <div className="sm:hidden md:flex mt-10">
-            <div className="w-screen relative">
-              <div className="sm:hidden md:flex absolute  left-[65.5%] z-30 top-[80%] mt-6 cursor-pointer">
-                <img src={closeIcon} alt="" className="w-[2rem]" />
+            <div className="w-screen block">
+              <div className="sm:hidden md:flex block ml-[29rem] mb-3 justify-center">
+                <img
+                  onClick={props.onClose}
+                  src={closeIcon}
+                  alt=""
+                  className="w-[1.3rem] cursor-pointer pointer-events-auto"
+                />
               </div>
               <img
-                src={props.slides[0].url}
+                src={slides[0].url}
                 alt=""
-                className="absolute w-[30rem] rounded-3xl mx-auto left-[30%]"
+                className="block w-[30rem] rounded-3xl mx-auto left-[30%] pointer-events-auto"
               />
             </div>
+            <div className="fixed flex w-[100%] gap-[26.8rem] justify-center h-[72vh] items-center pointer-events-auto">
+              <div className="bg-lightGrayishBlue w-[3rem] h-[3rem] grid place-items-center rounded-full cursor-pointer">
+                <img src={leftArrow} alt="" className="" />
+              </div>
+              <div className="bg-lightGrayishBlue w-[3rem] h-[3rem] grid place-items-center rounded-full cursor-pointer">
+                <img src={rightArrow} alt="" className="" />
+              </div>
+            </div>
           </div>
-          <div className="sm:hidden md:flex">
+
+          <div className="sm:hidden md:flex block gap-[1.5rem] mt-[1rem] w-screen justify-center pointer-events-auto">
             <img
-              src={props.thumbnails[0].url}
+              src={thumbnails[0].url}
               alt=""
-              className="w-[5.1rem] h-[5.1rem] rounded-lg absolute top-[34rem] left-[31%] cursor-pointer duration-200 "
+              className="w-[5.1rem] h-[5.1rem] rounded-lg cursor-pointer"
             />
             <img
-              src={props.thumbnails[1].url}
+              src={thumbnails[1].url}
               alt=""
-              className="w-[5.1rem] h-[5.1rem] rounded-lg absolute top-[34rem] left-[43%] cursor-pointer duration-200"
+              className="w-[5.1rem] h-[5.1rem] rounded-lg cursor-pointer"
             />
             <img
-              src={props.thumbnails[2].url}
+              src={thumbnails[2].url}
               alt=""
-              className="w-[5.1rem] h-[5.1rem] rounded-lg absolute top-[34rem] left-[53%] cursor-pointer duration-200"
+              className="w-[5.1rem] h-[5.1rem] rounded-lg cursor-pointer"
             />
             <img
-              src={props.thumbnails[3].url}
+              src={thumbnails[3].url}
               alt=""
-              className="w-[5.1rem] h-[5.1rem] rounded-lg absolute top-[34rem] left-[63%] cursor-pointer duration-200"
+              className="w-[5.1rem] h-[5.1rem] rounded-lg cursor-pointer"
             />
           </div>
         </div>
-        <div className="sm:hidden md:flex w-screen h-screen bg-black opacity-75 absolute z-20"></div>
       </div>
     </Fragment>
   );
