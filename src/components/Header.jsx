@@ -74,12 +74,17 @@ const Header = (props) => {
             </ul>
           </div>
           <div className="flex items-center gap-9">
-            <img
-              onClick={showCartHandler}
-              src={cartIcon}
-              alt=""
-              className="w-6 h-5 cursor-pointer"
-            />
+            <div className="relative">
+              <div className="bg-orange absolute w-[1.8rem] h-[1.5rem] left-[0.3rem]  text-white rounded-full text-center scale-[0.67] bottom-[0.55rem]">
+                3
+              </div>
+              <img
+                onClick={showCartHandler}
+                src={cartIcon}
+                alt=""
+                className="w-6 h-5 cursor-pointer"
+              />
+            </div>
             <img
               src={userIcon}
               alt=""

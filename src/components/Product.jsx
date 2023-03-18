@@ -15,30 +15,44 @@ import plus from "../images/icon-plus.svg";
 import cartIcon from "../images/icon-cart.svg";
 import ImageModal from "./ImageModal";
 
-const Product = (props) => {
-  const slides = [
-    { url: image1 },
-    { url: image2 },
-    { url: image3 },
-    { url: image4 },
-  ];
+const slides = [
+  { url: image1 },
+  { url: image2 },
+  { url: image3 },
+  { url: image4 },
+];
 
-  const thumbnails = [
-    { url: thumbnail1 },
-    { url: thumbnail2 },
-    { url: thumbnail3 },
-    { url: thumbnail4 },
-  ];
+const thumbnails = [
+  { url: thumbnail1 },
+  { url: thumbnail2 },
+  { url: thumbnail3 },
+  { url: thumbnail4 },
+];
+
+const Product = (props) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const nextSlide = () => {
+    const isLastSlide = currentIndex === slides.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
 
   return (
     <Fragment>
       <div className="pb-4 md:flex lg:mx-32 md:gap-[3rem]">
-        <div className="relative md:w-1/2">
+        <div className="relative md:w-1/2 duration-200">
           <img
             // onClick={showImageModalHandler}
-            src={slides[0].url}
+            src={slides[currentIndex].url}
             alt=""
-            className="w-full max-h-[320px] md:w-auto md:h-auto md:rounded-2xl md:scale-[1.35] md:absolute md:top-[7.625rem] md:ml-16 cursor-pointer"
+            className="w-full max-h-[320px] md:w-auto md:h-auto md:rounded-2xl md:scale-[1.35] md:absolute md:top-[7.625rem] md:ml-16 cursor-pointer duration-200"
           />
           <div className="sm:hidden md:flex">
             <img
@@ -48,25 +62,34 @@ const Product = (props) => {
               className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[0.5rem] cursor-pointer md:hover:opacity-70 duration-200 "
             />
             <img
+              onClick={props.onShowImageModal}
               src={thumbnails[1].url}
               alt=""
               className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[7.5rem] cursor-pointer md:hover:opacity-70 duration-200"
             />
             <img
+              onClick={props.onShowImageModal}
               src={thumbnails[2].url}
               alt=""
               className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[14.5rem] cursor-pointer md:hover:opacity-70 duration-200"
             />
             <img
+              onClick={props.onShowImageModal}
               src={thumbnails[3].url}
               alt=""
               className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[21.5rem] cursor-pointer md:hover:opacity-70 duration-200"
             />
           </div>
-          <div className="flex absolute top-[43%] left-4 w-10 h-10 bg-white rounded-full cursor-pointer md:hidden">
+          <div
+            onClick={prevSlide}
+            className="flex absolute top-[43%] left-4 w-10 h-10 bg-white rounded-full cursor-pointer md:hidden"
+          >
             <img src={leftArrow} alt="" className="mx-auto p-3 mr-[0.2rem]" />
           </div>
-          <div className="flex absolute top-[43%] right-4 w-10 h-10 bg-white rounded-full cursor-pointer md:hidden">
+          <div
+            onClick={nextSlide}
+            className="flex absolute top-[43%] right-4 w-10 h-10 bg-white rounded-full cursor-pointer md:hidden"
+          >
             <img src={rightArrow} alt="" className="mx-auto p-3 ml-[0.2rem]" />
           </div>
         </div>
