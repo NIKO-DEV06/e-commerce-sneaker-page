@@ -7,7 +7,7 @@ const MobileNav = (props) => {
       <div>
         <div className="absolute z-30 bg-white h-[125%] w-[65%]">
           <div className="ml-6" onClick={props.onClose}>
-            <img src={closeIcon} alt="" className="w-5" />
+            <img src={closeIcon} alt="" className="w-5 mt-[2rem]" />
           </div>
           <ul className="ml-6 mt-11 font-bold tracking-[0.06em] text-lg">
             <li>

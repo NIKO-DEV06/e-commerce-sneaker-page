@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+
 import image1 from "../images/image-product-1.jpg";
 import image2 from "../images/image-product-2.jpg";
 import image3 from "../images/image-product-3.jpg";
@@ -13,7 +14,6 @@ import rightArrow from "../images/icon-next.svg";
 import minus from "../images/icon-minus.svg";
 import plus from "../images/icon-plus.svg";
 import cartIcon from "../images/icon-cart.svg";
-import ImageModal from "./ImageModal";
 
 const slides = [
   { url: image1 },
@@ -47,12 +47,11 @@ const Product = (props) => {
   return (
     <Fragment>
       <div className="pb-4 md:flex lg:mx-32 md:gap-[3rem]">
-        <div className="relative md:w-1/2 duration-200">
+        <div className="relative md:w-1/2 transition-opacity">
           <img
-            // onClick={showImageModalHandler}
             src={slides[currentIndex].url}
             alt=""
-            className="w-full max-h-[320px] md:w-auto md:h-auto md:rounded-2xl md:scale-[1.35] md:absolute md:top-[7.625rem] md:ml-16 cursor-pointer duration-200"
+            className="w-full max-h-[320px] md:w-auto md:h-auto md:rounded-2xl md:scale-[1.35] md:absolute md:top-[7.625rem] md:ml-16 cursor-pointer duration-200 transition-opacity"
           />
           <div className="sm:hidden md:flex">
             <img
