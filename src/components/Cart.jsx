@@ -1,9 +1,11 @@
 import React, { Fragment } from "react";
+import { useSelector } from "react-redux";
 
 import thumbnail1 from "../images/image-product-1-thumbnail.jpg";
 import deleteIcon from "../images/icon-delete.svg";
 
 const Cart = () => {
+  const cartNumber = useSelector((state) => state.cart.cartNumber);
   return (
     <Fragment>
       <div className="absolute w-[95%] right-[0.6rem] top-[6.5rem] h-[16rem] bg-white z-20 rounded-xl md:drop-shadow-2xl md:w-[30%] md:top-[5.2rem] md:h-[17rem] md:right-[3rem]">
@@ -20,11 +22,17 @@ const Cart = () => {
               Fall Limited Edition Sneakers
             </p>
             <p className="text-darkGrayishBlue">
-              $125 x 3{" "}
-              <span className="text-black font-bold ml-2">$375.00</span>
+              $125 x {cartNumber}{" "}
+              <span className="text-black font-bold ml-2">
+                ${(125 * cartNumber).toFixed(2)}
+              </span>
             </p>
           </div>
-          <img src={deleteIcon} alt="" className="mt-5 ml-5 pr-4" />
+          <img
+            src={deleteIcon}
+            alt=""
+            className="mt-5 ml-5 pr-4 cursor-pointer"
+          />
         </div>
 
         <div className="flex items-center w-[85%] bg-orange mx-auto text-white font-bold text-center h-[3.4rem] mt-6 rounded-lg md:hover:drop-shadow-glow duration-300 cursor-pointer">

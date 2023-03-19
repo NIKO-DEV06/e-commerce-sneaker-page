@@ -1,5 +1,8 @@
 import React, { Fragment, useState } from "react";
 
+import { useSelector, useDispatch } from "react-redux";
+import { cartActions } from "../store/cart-slice";
+
 import image1 from "../images/image-product-1.jpg";
 import image2 from "../images/image-product-2.jpg";
 import image3 from "../images/image-product-3.jpg";
@@ -31,13 +34,21 @@ const thumbnails = [
 
 const Product = (props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const dispatch = useDispatch();
+  const cartCounter = useSelector((state) => state.cart.counter);
+
+  const incrementHandler = () => {
+    dispatch(cartActions.increment());
+  };
+  const decrementHandler = () => {
+    dispatch(cartActions.decrement());
+  };
 
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
   };
-
   const nextSlide = () => {
     const isLastSlide = currentIndex === slides.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
@@ -122,14 +133,23 @@ const Product = (props) => {
           <div className="md:mt-5 md:flex md:gap-6 md:ml-6">
             <div className="flex justify-between mx-6 md:mx-0 bg-lightGrayishBlue p-[1.1rem] rounded-md mt-4 font-bold md:w-[40%]">
               <img
+                onClick={decrementHandler}
                 src={minus}
                 alt=""
                 className="cursor-pointer md:h-[19px] md:w-[4px] md:rotate-90"
               />
-              <p>0</p>
-              <img src={plus} alt="" className="cursor-pointer md:w-4 md:h-5" />
+              <p>{cartCounter}</p>
+              <img
+                onClick={incrementHandler}
+                src={plus}
+                alt=""
+                className="cursor-pointer md:w-4 md:h-5"
+              />
             </div>
-            <div className="flex justify-center mx-6 bg-orange p-[1.1rem] rounded-md mt-4 text-white gap-4 font-bold md:w-[60%] md:mx-0 cursor-pointer md:hover:drop-shadow-glow md:hover:opacity-90 duration-300">
+            <div
+              onClick={props.onAddToCart}
+              className="flex justify-center mx-6 bg-orange p-[1.1rem] rounded-md mt-4 text-white gap-4 font-bold md:w-[60%] md:mx-0 cursor-pointer md:hover:drop-shadow-glow md:hover:opacity-90 duration-300"
+            >
               <img src={cartIcon} alt="" />
               Add to cart
             </div>

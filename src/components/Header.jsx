@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from "react";
+
 import Cart from "./Cart";
 import ImageModal from "./ImageModal";
 
@@ -76,7 +77,7 @@ const Header = (props) => {
           <div className="flex items-center gap-9">
             <div className="relative">
               <div className="bg-orange absolute w-[1.8rem] h-[1.5rem] left-[0.3rem]  text-white rounded-full text-center scale-[0.67] bottom-[0.55rem]">
-                3
+                {props.cartCount}
               </div>
               <img
                 onClick={showCartHandler}

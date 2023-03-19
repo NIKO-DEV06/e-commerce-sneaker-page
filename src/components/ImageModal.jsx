@@ -87,7 +87,11 @@ const ImageModal = (props) => {
               }}
               src={thumbnails[0].url}
               alt=""
-              className="w-[5.1rem] h-[5.1rem] rounded-lg cursor-pointer"
+              className={`w-[5.1rem] h-[5.1rem] rounded-lg cursor-pointer ${
+                currentIndex === 0
+                  ? "border-orange border-2 brightness-[1.15]"
+                  : ""
+              }`}
             />
             <img
               onClick={() => {
@@ -95,7 +99,11 @@ const ImageModal = (props) => {
               }}
               src={thumbnails[1].url}
               alt=""
-              className="w-[5.1rem] h-[5.1rem] rounded-lg cursor-pointer"
+              className={`w-[5.1rem] h-[5.1rem] rounded-lg cursor-pointer ${
+                currentIndex === 1
+                  ? "border-orange border-2 brightness-[1.15]"
+                  : ""
+              }`}
             />
             <img
               onClick={() => {
@@ -103,7 +111,11 @@ const ImageModal = (props) => {
               }}
               src={thumbnails[2].url}
               alt=""
-              className="w-[5.1rem] h-[5.1rem] rounded-lg cursor-pointer"
+              className={`w-[5.1rem] h-[5.1rem] rounded-lg cursor-pointer ${
+                currentIndex === 2
+                  ? "border-orange border-2 brightness-[1.15]"
+                  : ""
+              }`}
             />
             <img
               onClick={() => {
@@ -111,7 +123,11 @@ const ImageModal = (props) => {
               }}
               src={thumbnails[3].url}
               alt=""
-              className="w-[5.1rem] h-[5.1rem] rounded-lg cursor-pointer"
+              className={`w-[5.1rem] h-[5.1rem] rounded-lg cursor-pointer ${
+                currentIndex === 3
+                  ? "border-orange border-2 brightness-[1.15]"
+                  : ""
+              }`}
             />
           </div>
         </div>
