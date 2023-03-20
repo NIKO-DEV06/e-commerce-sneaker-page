@@ -20,7 +20,7 @@ const App = () => {
   const closeImageModalHandler = () => {
     setImageModal(false);
   };
-  console.log(cartNumber);
+
   return (
     <Fragment>
       <Header

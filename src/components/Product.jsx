@@ -60,31 +60,32 @@ const Product = (props) => {
       <div className="pb-4 md:flex lg:mx-32 md:gap-[3rem]">
         <div className="relative md:w-1/2 transition-opacity">
           <img
+            onClick={props.onShowImageModal}
             src={slides[currentIndex].url}
             alt=""
             className="w-full max-h-[320px] md:w-auto md:h-auto md:rounded-2xl md:scale-[1.35] md:absolute md:top-[7.625rem] md:ml-16 cursor-pointer duration-200 transition-opacity"
           />
           <div className="sm:hidden md:flex">
             <img
-              onClick={props.onShowImageModal}
+              onClick={() => setCurrentIndex(0)}
               src={thumbnails[0].url}
               alt=""
               className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[0.5rem] cursor-pointer md:hover:opacity-70 duration-200 "
             />
             <img
-              onClick={props.onShowImageModal}
+              onClick={() => setCurrentIndex(1)}
               src={thumbnails[1].url}
               alt=""
               className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[7.5rem] cursor-pointer md:hover:opacity-70 duration-200"
             />
             <img
-              onClick={props.onShowImageModal}
+              onClick={() => setCurrentIndex(2)}
               src={thumbnails[2].url}
               alt=""
               className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[14.5rem] cursor-pointer md:hover:opacity-70 duration-200"
             />
             <img
-              onClick={props.onShowImageModal}
+              onClick={() => setCurrentIndex(3)}
               src={thumbnails[3].url}
               alt=""
               className="w-[5.75rem] h-[5.75rem] rounded-lg absolute top-[32.5rem] left-[21.5rem] cursor-pointer md:hover:opacity-70 duration-200"
