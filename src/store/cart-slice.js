@@ -19,7 +19,14 @@ const cartSlice = createSlice({
     addToCart(state) {
       return {
         ...state,
+        counter: 0,
         cartNumber: state.cartNumber + state.counter,
+      };
+    },
+    deleteCart(state) {
+      return {
+        ...state,
+        cartNumber: 0,
       };
     },
   },
